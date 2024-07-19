@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>WELCOME TO TO-DO APP</h1>
+    <h4>TO-DO LIST : </h4>
+    <ol>
+        {% for todo in todos %}
+            <li><a href="{% url 'tododisplay' todo.id %}">{{ todo.name }}</a></li>
+            <button><a href="{% url 'tododelete' todo.id %}">DELETE</a></button>
+            <button><a href="{% url 'todoedit' todo.id %}">EDIT</a></button>
+        {% endfor %}
+    </ol>
+    <button><a href="{% url 'todoentry' %}">ADD TASK</a></button>
+</body>
+</html>

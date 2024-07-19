@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data>">
+        {% csrf_token %}
+        <label>NAME : </label>
+        <input type="text" name="title" placeholder="enter movie name"><br><br>
+        <label>DIRECTOR : </label>
+        <input type="text" name="director" placeholder="enter director name"><br><br>
+        <label>CAST : </label>
+        <input type="text" name="cast" placeholder="enter cast"><br><br>
+        <label>ZONER : </label>
+        <input type="text" name="zoner" placeholder="enter zoner"><br><br>
+        <label>DESCRIPTION : </label>
+        <textarea name="desc"></textarea><br><br>
+        <label>POSTER : </label>
+        <input type="file" name="poster"><br><br>
+        <input type="submit" name="submit">
+    </form>
+</body>
+</html>

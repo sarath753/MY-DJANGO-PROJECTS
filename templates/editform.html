@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <label>NAME : </label>
+        <input name="name" type="text" value="{{ enquiryreq.name }}"><br><br>
+        <label>EMAIL : </label>
+        <input type="email" name="email" value="{{ enquiryreq.email }}"><br><br>
+        <label>SURNAME : </label>
+        <input type="text" name="sname" value="{{ enquiryreq.sname }}"><br><br>
+        <input type="submit" name="submit">
+    </form>
+</body>
+</html>

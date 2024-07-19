@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        p {
+            text-align: center;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        form {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            background-color: #5cb85c;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4cae4c;
+        }
+
+        button a {
+            text-decoration: none;
+            color: white;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #5bc0de;
+            border: none;
+            color: white;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #31b0d5;
+        }
+
+        .products-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .product-item {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .product-item:hover {
+            transform: scale(1.05);
+        }
+
+        .product-item h3 {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+
+        .product-item h2 {
+            font-size: 1.2em;
+            margin: 10px 0;
+            color: #666;
+        }
+
+        .product-item h1 {
+            font-size: 1.8em;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .product-item img {
+            max-width: 100%;
+            max-height: 300px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <p>WELCOME TO THE PRODUCTS PAGE</p>
+    <p>ENTER THE CATEGORY OF YOUR WISH TO VIEW THE PRODUCTS</p><span><button><a href="{% url 'cartdisplay' %}">CART</a></button></span>
+    <form>
+        {% csrf_token %}
+        <input type="text" name="category">
+        <input type="submit" value="Submit">
+    </form>
+    <button><a href="{% url 'productentry' %}">ADD ITEM</a></button>
+    <div class="products-container">
+        {% for x in products %}
+            <div class="product-item">
+                <h3>{{ x.name }}</h3>
+                <h2>{{ x.description }}</h2>
+                <h1>{{ x.price }}</h1>
+                {% if x.image %}
+                    <img src="{{ x.image.url }}" alt="{{ x.name }}">
+                {% endif %}
+                <button><a href="{% url 'addtocart' x.id %}">ADD TO CART</a></button>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

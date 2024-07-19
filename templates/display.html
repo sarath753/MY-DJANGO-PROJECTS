@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enquiry List</title>
+</head>
+<body>
+    <p>THE USERS ARE:</p>
+    <table border="1">
+        <tr>
+            <th>Username</th>
+            <th>Email ID</th>
+            <th>Surname</th>
+            <th>Actions</th>
+        </tr>
+        {% for en in enquiries %}
+            <tr>
+                <td>{{ en.name }}</td>
+                <td>{{ en.email }}</td>
+                <td>{{ en.surname }}</td>
+                <td>
+                    <button><a href="{% url 'editform' en.id %}">EDIT</a></button>
+                    <button><a href="{% url 'deleteenquiry' en.id %}">DELETE</a></button>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <button><a href="{% url 'enquiryform' %}">ADD NEW POST</a></button>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <label>NAME : </label>
+        <input type="text" name="name" value="{{ en.name }}">
+        <label>DESCRIPTION : </label>
+        <textarea name="desc" rows="6" cols="33">{{ en.description }}</textarea>
+        <label>DUEDATE : </label>
+        <input type="date" name="ddate" value='{{ en.duedate|date:"Y-m-d" }}'>
+        <label>COMPLETION STATUS : </label>
+        <input type="text" name="status" value="{{ en.completionstatus }}">
+        <input type="submit">
+     </form>
+</body>
+</html>

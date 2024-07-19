@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>WELCOME TO THE DETAILED BLOG PAGE</h3>
+    <p> TITLE : {{ details.title }}</p>
+    <p> CONTENT : {{ details.content }}</p>
+    <p>CREATED DATE : {{ details.datecreated }}</p>
+    <p>AUTHOR : {{ details.author }}</p>
+    <button><a href="{% url 'simpledisplayblog' %}">GO BACK</a></button>
+</body>
+</html>

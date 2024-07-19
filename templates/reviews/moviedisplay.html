@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>WELCOME TO THE MOVIES</h2>
+    <h4>WE VALUE YOUR REVIEWS HERE</h4>
+    <ol>
+        {% for movie in movielist %}
+        <li>
+            <div>
+                <img src="{{ movie.poster.url }}">
+                <span><a href="{% url 'detailed' movie.id %}">{{ movie.title }}</a></span>
+            </div>
+        </li>
+        {% endfor %}
+    </ol>
+</body>
+</html>

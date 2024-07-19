@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <form method="post">
+      {% csrf_token %}
+      <label>NAME : </label>
+      <input type="text" name="name" placeholder="ENTER NAME">
+      <label>DESCRIPTION : </label>
+      <textarea name="description" rows="6" cols="33" placeholder="ENTER DESCRIPTION"></textarea>
+      <label>DUEDATE : </label>
+      <input type="date" name="duedate">
+      <input type="submit">
+   </form>
+
+</body>
+</html>
